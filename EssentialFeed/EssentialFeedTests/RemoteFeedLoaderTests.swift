@@ -27,4 +27,13 @@ final class RemoteFeedLoaderTests: XCTestCase {
         XCTAssertNil(client.requestURL)
     }
     
+    func test_load_requestDataFromURL() {
+        let client = HTTPClient.shared
+        let sut = RemoteFeedLoader()
+        
+        sut.load()
+        
+        XCTAssertNotNil(client.requestURL)
+    }
+    
 }
