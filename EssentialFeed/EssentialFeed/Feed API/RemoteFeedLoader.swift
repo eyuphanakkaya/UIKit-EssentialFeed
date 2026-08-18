@@ -37,7 +37,7 @@ public final class RemoteFeedLoader {
 
 
 public enum HTTPClientResult {
-    case success(HTTPURLResponse)
+    case success(Data, HTTPURLResponse)
     case failure(Error)
 }
 public protocol HTTPClient {
