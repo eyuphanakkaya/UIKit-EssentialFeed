@@ -80,12 +80,3 @@ enum RemoteFeedMapper {
         return root.feeds
     }
 }
-
-
-public enum HTTPClientResult {
-    case success(Data, HTTPURLResponse)
-    case failure(Error)
-}
-public protocol HTTPClient {
-    func get(url: URL, completion: @escaping (HTTPClientResult)-> Void )
-}
