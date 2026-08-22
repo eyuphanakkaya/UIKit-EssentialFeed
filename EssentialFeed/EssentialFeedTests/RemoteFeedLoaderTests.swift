@@ -155,13 +155,14 @@ final class RemoteFeedLoaderTests: XCTestCase {
         return json
     }
     
-    private func expect(_ sut: RemoteFeedLoader, toCompleteWithResult result: RemoteFeedLoader.Result, when action: () -> Void) {
+    private func expect(_ sut: RemoteFeedLoader, toCompleteWithResult result: RemoteFeedLoader.Result, file: StaticString = #file, line: UInt = #line, when action: () -> Void) {
+        
         var capturedResult = [RemoteFeedLoader.Result]()
         sut.load { capturedResult.append($0) }
  
         action()
 
-        XCTAssertEqual(capturedResult, [result])
+        XCTAssertEqual(capturedResult, [result], file: file, line: line)
     }
 
 }
