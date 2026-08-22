@@ -33,12 +33,7 @@ public final class RemoteFeedLoader {
 
             switch result {
             case let .success(data, response):
-                do {
-                    let mapper = try RemoteFeedMapper.map(data, from: response)
-                    completion(.success(mapper))
-                } catch {
-                    completion(.failure(.invalidData))
-                }
+                completion(RemoteFeedMapper.map(data, from: response))
             case .failure:
                 completion(.failure(.connectivity))
             }
